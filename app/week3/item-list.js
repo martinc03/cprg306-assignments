@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from 'C:\Users\marti\Desktop\School\Web Development 2\cprg306-assignments\app\week3\item.js'; // Make sure to provide the correct path to the Item component
+import Item from 'C:\Users\marti\Desktop\School\Web Development 2\cprg306-assignments\app\week3\item.js'; 
 
 const ItemList = () => {
   const items = [
