@@ -1,6 +1,6 @@
 import NewItem from './new-item';
 
-const Page = () => {
+const Week4Page = () => {
   return (
     <div>
       <NewItem />

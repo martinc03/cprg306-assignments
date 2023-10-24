@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from 'C:\Users\marti\Desktop\School\Web Development 2\cprg306-assignments\app\week3\item.js'; 
+import Item from '../week3/item';
 
 const ItemList = () => {
   const items = [

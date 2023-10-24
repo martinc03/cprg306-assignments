@@ -3,9 +3,9 @@
 import React from 'react';
 
 const StudentInfo = () => {
-  const name = 'Your Name';
+  const name = 'Martin';
   const courseSection = 'CPRG 306 A';
-  const githubLink = 'https://github.com/yourusername';
+  const githubLink = 'https://github.com/martinc03';
 
   return (
     <div>
