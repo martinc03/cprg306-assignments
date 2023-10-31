@@ -1,99 +1,114 @@
-import React, { useState } from 'react';
+'use client'
+import React, { useState, useEffect } from "react";
 
+export default function NewEvent() {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
+  const [eventCreated, setEventCreated] = useState(false);
 
-const NewItem = () => {
-  
-    // Initialize State Variables
-  const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState('produce');
-
-  // Form Submission Handler
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Create an item object with current values
-    const item = {
+    const newEvent = {
       name,
-      quantity,
-      category
+      date,
+      location,
+      description,
     };
+    console.log(newEvent);
 
-    // Log the item object
-    console.log('Item:', item);
+    setEventCreated(true);
 
-    // Display an alert with current state
-    alert(`Item: ${name}, Quantity: ${quantity}, Category: ${category}`);
+    setName("");
+    setDate("");
+    setLocation("");
+    setDescription("");
 
-    // Reset state variables to initial values
-    setName('');
-    setQuantity(1);
-    setCategory('produce');
+    setEventCreated(false);
+  };
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-lg">
-      <form onSubmit={handleSubmit}>
-        {/* Name Field */}
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Name:
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
+    <main>
+      <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
+        {eventCreated && (
+          <div className="absolute top-0 mt-8 text-2xl text-yellow-400">
+            Event Created
+          </div>
+        )}
+        <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+          <h1 className="text-2xl text-gray-800 font-bold mb-8">
+            Create New Event
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <label className="block mb-4">
+              <span className="text-gray-800">Event Name:</span>
+              <input
+                required
+                onChange={handleNameChange}
+                value={name}
+                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+              />
+            </label>
 
-        {/* Quantity Field */}
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="quantity">
-            Quantity:
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="number"
-            id="quantity"
-            min="1"
-            max="99"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            required
-          />
-        </div>
+            <label className="block mb-4">
+              <span className="text-gray-800">Event Date:</span>
+              <input
+                type="date"
+                required
+                onChange={handleDateChange}
+                value={date}
+                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+              />
+            </label>
 
-        {/* Category Field */}
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
-            Category:
-          </label>
-          <select
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="produce">Produce</option>
-            <option value="dairy">Dairy</option>
-            <option value="bakery">Bakery</option>
-            {/* Add other categories as needed */}
-          </select>
-        </div>
+            <label className="block mb-4 ">
+              <span className="text-gray-800">Event Location:</span>
+              <input
+                required
+                onChange={handleLocationChange}
+                value={location}
+                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+              />
+            </label>
 
-        {/* Submit Button */}
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+            <label className="block mb-4">
+              <span className="text-gray-800">Event Description:</span>
+              <textarea
+                required
+                onChange={handleDescriptionChange}
+                value={description}
+                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+                rows="3"
+              />
+            </label>
+
+            <button
+              type="submit"
+              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white"
+            >
+              Create Event
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
   );
-};
-
-export default NewItem;
+}

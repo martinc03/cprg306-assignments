@@ -24,7 +24,9 @@ const HomePage = () => {
       <Link href="/week6">
         <p>Go to Week 6</p>
       </Link>
-
+      <Link href="/week7">
+        <p>Go to Week 7</p>
+      </Link>
     </div>
   );
 };

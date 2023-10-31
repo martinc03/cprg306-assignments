@@ -1,5 +1,6 @@
+
 import React from 'react';
-import ItemList from 'C:\Users\marti\Desktop\School\Web Development 2\cprg306-assignments\app\week3\item-list.js'; 
+import ItemList from '../week3/item-list'
 const Week3Page = () => {
   return (
     <main className="container mx-auto p-6">
@@ -8,5 +9,5 @@ const Week3Page = () => {
     </main>
   );
 };
+export default Week3Page;
 
-export default Page;

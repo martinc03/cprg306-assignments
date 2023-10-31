@@ -1,3 +1,4 @@
+'use client'
 import NewItem from './new-item';
 
 const Week4Page = () => {
@@ -8,4 +9,4 @@ const Week4Page = () => {
   );
 };
 
-export default Page;
+export default Week4Page;

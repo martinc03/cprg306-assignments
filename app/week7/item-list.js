@@ -1,11 +1,12 @@
-import React from 'react';
-import Item from '../week3/item'; 
-import Item from '../week5/items.json'
+import React, { useState } from 'react';
+import Item from '../week7/item'; 
 
-const ItemList = () => {
+const ItemList = ({ items = [], onItemSelect }) => { 
   const [sortBy, setSortBy] = useState('name');
 
-  const sortedItems = itemsData.sort((a, b) => {
+  const sortedItems = [...items];
+
+  sortedItems.sort((a, b) => {
     if (sortBy === 'name') {
       return a.name.localeCompare(b.name);
     } else if (sortBy === 'category') {
@@ -26,10 +27,17 @@ const ItemList = () => {
       </div>
       <ul>
         {sortedItems.map(item => (
-          <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+            onClick={() => onItemSelect(item)} // Pass the onItemSelect prop
+          />
         ))}
       </ul>
     </div>
   );
 };
+
 export default ItemList;

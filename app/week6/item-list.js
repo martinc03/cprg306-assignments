@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react';
-import Item from './item';
+import Item from '../week6/item';
 
-const ItemList = ({ item = [] }) => { // Default to an empty array if 'items' is not provided
+const ItemList = ({ items = [], onItemSelect }) => {
   const [sortBy, setSortBy] = useState('name');
 
-  const sortedItems = [...item];
+  const sortedItems = [...items];
 
   sortedItems.sort((a, b) => {
     if (sortBy === 'name') {
@@ -28,7 +28,13 @@ const ItemList = ({ item = [] }) => { // Default to an empty array if 'items' is
       </div>
       <ul>
         {sortedItems.map(item => (
-          <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+            onSelect={() => onItemSelect(item)} // Pass the onSelect prop
+          />
         ))}
       </ul>
     </div>
