@@ -53,7 +53,7 @@ export default function NewEvent() {
             Event Created
           </div>
         )}
-        <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <div className="w-full max-w-md bg-rose-700 p-8 rounded-lg shadow-md">
           <h1 className="text-2xl text-gray-800 font-bold mb-8">
             Create New Event
           </h1>
@@ -102,7 +102,7 @@ export default function NewEvent() {
 
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white"
+              className="w-full py-2 px-4 bg-rose-950 hover:bg-rose-950 rounded-md text-white"
             >
               Create Event
             </button>
