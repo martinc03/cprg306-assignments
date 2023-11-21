@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUserAuth } from './_utils/auth-context';
 
-const Week8Page = () => {
+const Week10Page = () => {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
   
@@ -41,4 +41,4 @@ const Week8Page = () => {
   );
 };
 
-export default Week8Page;
+export default Week10Page;

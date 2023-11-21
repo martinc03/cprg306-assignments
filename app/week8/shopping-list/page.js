@@ -4,8 +4,15 @@ import React, { useState } from 'react';
 import NewItem from '../../week8/shopping-list/new-item';
 import ItemList from '../../week8/shopping-list/item-list';
 import MealIdeas from '../../week8/shopping-list/meal-ideas'; 
-
+import Week8Page from '../../week8/page';
 const Week6Page = () => {
+
+  const {user} = useUserAuth();
+
+  if (!user){
+    return<Redirect to = {Week8Page} ></Redirect>
+  }
+  
   const [items, setItems] = useState([]); // Initialize items as an empty array
   const [selectedItemName, setSelectedItemName] = useState('');
 
